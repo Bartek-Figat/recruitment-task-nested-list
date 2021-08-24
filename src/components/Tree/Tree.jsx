@@ -4,11 +4,12 @@ import RadioButton from "../RadioButton/RadioButton";
 import CheckboxButton from "../CheckboxButton/CheckboxButton";
 
 function Tree(props) {
-  const [isExpanded, setIsExpanded] = useState(props.parentNode.isExpanded);
+  const [isExpanded, setIsExpanded] = useState(!props.parentNode.isExpanded);
   const [childrenHeight, setChildrenHeight] = useState("auto");
   const [unCollapsedHeight, setUncollapsedHeight] = useState("auto");
 
   const childrenRef = useRef(null);
+  const nodeRef = useRef(null);
 
   useEffect(() => {
     setChildrenHeight(childrenRef.current.clientHeight);
@@ -16,7 +17,13 @@ function Tree(props) {
   }, []);
 
   return (
-    <div className="node">
+    <div
+      className="node"
+      ref={nodeRef}
+      style={{
+        minHeight: "fit-content",
+      }}
+    >
       <div className="linesContainer">
         <div
           onClick={() => {
@@ -42,9 +49,13 @@ function Tree(props) {
       </div>
 
       <div
-        style={{ height: childrenHeight }}
+        style={{
+          maxHeight: !isExpanded ? childrenHeight : unCollapsedHeight,
+          transition: "all 0.5s",
+          overflowY: "hidden",
+        }}
         ref={childrenRef}
-        className="children"
+        className={"children"}
       >
         {props.parentNode.children.map((child, i) => (
           <Tree parentNode={child} key={i} />
