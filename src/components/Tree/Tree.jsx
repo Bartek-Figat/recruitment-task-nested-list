@@ -18,34 +18,53 @@ function Tree(props) {
 
   return (
     <div
-      className="node"
+      className={`node ${
+        props.parentNode.children.length === 0 ? "childless" : ""
+      }`}
       ref={nodeRef}
       style={{
         minHeight: "fit-content",
       }}
     >
-      <div className="linesContainer">
-        <div
-          onClick={() => {
-            setIsExpanded(!isExpanded);
-            if (!isExpanded) {
-              setChildrenHeight(unCollapsedHeight);
-            } else {
-              setChildrenHeight(0);
-            }
-          }}
-          className="flex-row"
-        >
-          {
+      <div className="linesContainer flex-row">
+        <div style={{ position: "relative" }}>
+          <div
+            onClick={() => {
+              setIsExpanded(!isExpanded);
+              if (!isExpanded) {
+                setChildrenHeight(unCollapsedHeight);
+              } else {
+                setChildrenHeight(0);
+              }
+            }}
+            className={`flex-row ${
+              ["checkboxNode", "radioNode"].includes(props.parentNode.type)
+                ? "first-line--button"
+                : "first-line"
+            }`}
+          >
             {
-              radioNode: <RadioButton isPlus={!isExpanded} />,
-              checkboxNode: <CheckboxButton isPlus={!isExpanded} />,
-              node: "",
-            }[props.parentNode.type]
-          }
-          <p>{props.parentNode.line1}</p>
+              {
+                radioNode: <RadioButton isPlus={!isExpanded} />,
+                checkboxNode: <CheckboxButton isPlus={!isExpanded} />,
+                node: "",
+              }[props.parentNode.type]
+            }
+          </div>
+          <div
+            className="vertical-line"
+            style={{
+              height: childrenHeight,
+            }}
+          />
         </div>
-        <p>{props.parentNode.line2}</p>
+
+        <div className="flex-col" style={{ alignItems: "flex-start" }}>
+          <div className="flex-row">
+            <p>{props.parentNode.line1}</p>
+          </div>
+          <p>{props.parentNode.line2}</p>
+        </div>
       </div>
 
       <div
@@ -53,6 +72,7 @@ function Tree(props) {
           maxHeight: !isExpanded ? childrenHeight : unCollapsedHeight,
           transition: "all 0.5s",
           overflowY: "hidden",
+          marginLeft: 50,
         }}
         ref={childrenRef}
         className={"children"}

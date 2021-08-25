@@ -3,20 +3,51 @@ p
   padding: 0
 
 .node
-  margin-left: 50px
-  border: 2px solid black
+//margin-left: 50px
+//border: 2px solid black
 
 .linesContainer
   height: auto
   display: flex
   flex-direction: column
   align-items: flex-start
+  margin: 0
 
 .flex-row
   display: flex
   flex-direction: row
 
+.flex-col
+  display: flex
+  flex-direction: column
+
 .children
   overflow: hidden
   height: auto
   transition: height 1s
+
+.first-line:before
+  position: relative
+  width: 15px
+  margin-top: 75%
+  border-bottom: 2px solid #000
+  content: ''
+  align-self: center
+
+.first-line--button:before
+  position: relative
+  width: 15px
+  border-bottom: 2px solid #000
+  content: ''
+  align-self: center
+  transition: all 0.5s
+
+.vertical-line
+  border-right: 2px solid black
+  position: absolute
+  margin-top: 18.25px
+  margin-left: 50px
+  transition: all 0.5s
+
+.childless:nth-of-type(odd)
+  background-color: rgba(232, 232, 232, 1)
