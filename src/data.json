@@ -2,7 +2,7 @@
   "line1": "Nagłówek drzewa",
   "line2": "wielowierszowy",
   "type": "radioNode",
-  "isExpanded": true,
+  "isExpanded": false,
   "textProperties": {
     "fontSize": "medium",
     "isBold": true
@@ -12,7 +12,7 @@
       "line1": "Pododdział 1",
       "line2": "",
       "type": "radioNode",
-      "isExpanded": true,
+      "isExpanded": false,
       "textProperties": {
         "fontSize": "medium",
         "isBold": true
@@ -44,7 +44,7 @@
           "line1": "Zespół 3",
           "line2": "Analitycy",
           "type": "checkboxNode",
-          "isExpanded": true,
+          "isExpanded": false,
           "textProperties": {
             "fontSize": "medium",
             "isBold": false
@@ -111,7 +111,7 @@
           "line1": "Zespół 4",
           "line2": "Programiści",
           "type": "checkboxNode",
-          "isExpanded": true,
+          "isExpanded": false,
           "textProperties": {
             "fontSize": "medium",
             "isBold": false
@@ -180,7 +180,7 @@
       "line1": "Pododdział 2",
       "line2": "",
       "type": "radioNode",
-      "isExpanded": true,
+      "isExpanded": false,
       "textProperties": {
         "fontSize": "medium",
         "isBold": true
@@ -222,7 +222,7 @@
               "line1": "Podzespół 3.1",
               "line2": "Kalendarz",
               "type": "node",
-              "isExpanded": true,
+              "isExpanded": false,
               "textProperties": {
                 "fontSize": "small",
                 "isBold": false
@@ -279,7 +279,7 @@
           "line1": "Zespół 4",
           "line2": "Programiści",
           "type": "checkboxNode",
-          "isExpanded": true,
+          "isExpanded": false,
           "textProperties": {
             "fontSize": "medium",
             "isBold": false
@@ -348,7 +348,7 @@
       "line1": "Pododdział 3",
       "line2": "",
       "type": "radioNode",
-      "isExpanded": true,
+      "isExpanded": false,
       "textProperties": {
         "fontSize": "medium",
         "isBold": true
@@ -379,10 +379,10 @@
         {
           "line1": "Zespół 3",
           "line2": "Analitycy",
-          "type": "node",
-          "isExpanded": true,
+          "type": "checkboxNode",
+          "isExpanded": false,
           "textProperties": {
-            "fontSize": "small",
+            "fontSize": "medium",
             "isBold": false
           },
           "children": [
@@ -447,7 +447,7 @@
           "line1": "Zespół 4",
           "line2": "Programiści",
           "type": "checkboxNode",
-          "isExpanded": true,
+          "isExpanded": false,
           "textProperties": {
             "fontSize": "medium",
             "isBold": false
